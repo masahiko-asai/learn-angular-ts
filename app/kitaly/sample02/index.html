@@ -51,9 +51,16 @@
 
   <section ng-controller="RepeatController as ctrl">
     <h2>Repeat</h2>
-    <ul>
-      <li ng-repeat="friend in ctrl.friends">{{friend.name}} - {{friend.age}}</li>
-    </ul>
+    <input type="text" name="searchText" value="" ng-model="ctrl.searchText">
+    <table>
+      <tr ng-repeat="friend in ctrl.friends | orderBy:'age' | filter:ctrl.searchText | limitTo: 5" ng-init="ctrl.parentIndex = $index">
+        <td ng-repeat="(key, value) in friend">{{ctrl.parentIndex}}</td>
+        <td>{{$index}}</td>
+        <td>{{friend.name}}</td>
+        <td>{{friend.age}}</td>
+        <td>{{friend.gender}}</td>
+      </tr>
+    </table>
   </section>
 </body>
 

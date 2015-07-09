@@ -12,6 +12,8 @@ class Sample02FilterController {
 }
 
 class Sample02RepeatController {
+  public searchText: string;
+
   public friends = [
     {name:'John', age:25, gender:'boy'},
     {name:'Jessie', age:30, gender:'girl'},

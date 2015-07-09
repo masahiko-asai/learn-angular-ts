@@ -20,15 +20,16 @@
   <section class="content" ng-controller="SampleController as ctrl">
     <div class="invoice">
       <strong>Invoice:</strong><br>
-      Quantity: <input type="number" ng-model="ctrl.data.quantity" ng-change="ctrl.calculate()" min="1"><br>
-      Costs: <input type="number" ng-model="ctrl.data.costs" ng-change="ctrl.calculate()" min="1">
-      <select name="currency" ng-model="ctrl.data.currency" ng-change="ctrl.calculate()">
+      Quantity: <input type="number" ng-model="ctrl.data.quantity" min="1"><br>
+      Costs: <input type="number" ng-model="ctrl.data.costs" min="1">
+      <select name="currency" ng-model="ctrl.data.currency">
         <option ng-repeat="(key, value) in ctrl.exchangeRates">{{key}}</option>
       </select>
     </div>
 
     <div class="display">
       <strong>Total:</strong>
+      {{ctrl.calculate()}}
       <span ng-repeat="(key, value) in ctrl.exchangeResults">
         {{key}}: {{value|currency:''}}
       </span>
