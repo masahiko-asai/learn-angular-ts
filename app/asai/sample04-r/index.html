@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="sample04App">
+
+<head lang="ja">
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.js"></script>
+
+  <title>Sample 04 - Asai - Daily AngularTS</title>
+
+  <style type="text/css" media="screen">
+
+  </style>
+</head>
+
+<body>
+  <h1>Sample04 App</h1>
+ 
+
+  <!-- Combo Box -->
+  <h2>Combo Box</h2>
+  <div ng-init="statuses = ['未所有', '未読', '読中', '読了']; status = '初期値'">ComboBox外側のステータス {{status}}</div>
+  ステータス：
+  <combo-box selected-item="status" all-items="statuses"></combo-box>
+
+  <h2>ComboBox Refactoring</h2>
+  <div>ComboBox外側のステータス</div>
+  ステータス：
+  <ref-combo-box selected-item="status" all-items="statuses"></ref-combo-box>
+
+
+  <!-- Notification -->
+  <h2>Notification</h2>
+  <div ng-controller="notificationController as ctrl">
+
+    <div ng-repeat="item in ctrl.items">
+      <notification timeout="5000" enable="item.enableMessage">
+        {{item.message}} ({{item.time | date: 'HH:mm:ss'}})
+      </notification>
+    </div>
+
+    <input type="text" mg-model="ctrl.message">
+    <button ng-click="ctrl.addMessage(ctrl.message)">add</button>
+  </div>
+
+  <!-- rating -->
+  <h2>rating</h2>
+  <section>
+  <input type="number" ng-model="rate">
+  <rating ng-model="rate" max="10" readonly="false"></rating>
+  </section>
+
+
+
+
+
+  <script src="app.js" type="text/javascript" charset="utf-8"></script>
+
+  <script type="text/ng-template"></script>
+</body>
+
+</html>

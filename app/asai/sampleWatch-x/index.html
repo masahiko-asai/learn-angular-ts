@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="sampleApp">
+
+<head lang="ja">
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.js"></script>
+
+  <script src="app.js"></script>
+  <title>Sample04</title>
+</head>
+
+<body>
+  <h1>Sample04 App</h1>
+
+  <section ng-controller="WatchController as ctrl">
+    <h2>メニューを選択</h2>
+    <select name="menus" ng-model="ctrl.menus">
+      <option></option>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select>
+    <p>{{ctrl.menuName}}</p>
+    <h2>現在時刻</h2>
+    <p>{{ctrl.now}}</p>
+  </section>
+</body>
+
+</html>
